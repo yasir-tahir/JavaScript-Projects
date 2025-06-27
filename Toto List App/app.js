@@ -15,6 +15,19 @@ const p = document.createElement("p");
 p.innerHTML = inputText;
 li.appendChild(p); 
 
+// Creating Edit Button;
+const editBtn = document.createElement("button");
+editBtn.innerText = "Edit"
+editBtn.classList.add("btn", "editBtn");
+li.appendChild(editBtn);
+
+
+// Creating Delete Button;
+const deleteBtn = document.createElement("button");
+deleteBtn.innerText = "Delete"
+deleteBtn.classList.add("btn", "deleteBtn");
+li.appendChild(deleteBtn);
+
 todoList.appendChild(li);
 inputBox.value = '';
 }
