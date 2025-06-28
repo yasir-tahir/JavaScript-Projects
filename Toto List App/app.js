@@ -32,5 +32,13 @@ todoList.appendChild(li);
 inputBox.value = '';
 }
 
+const updateTodo = (event)=>{
+    // console.log(event.target.innerHTML);
+    if(event.target.innerHTML === "Delete"){
+        todoList.removeChild(event.target.parentElement);
+    }
+    
+}
 
 addBtn.addEventListener('click', addTodo);
+todoList.addEventListener('click', updateTodo)
