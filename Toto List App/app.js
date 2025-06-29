@@ -2,6 +2,7 @@ const inputBox = document.getElementById('inputBox');
 const addBtn = document.getElementById('addBtn'); 
 const todoList = document.getElementById('todoList'); 
 
+let editTodo = null;
 
 const addTodo = ()=>{
     const inputText = inputBox.value.trim();
@@ -10,6 +11,16 @@ const addTodo = ()=>{
         return false;
     }
 
+    if(addBtn.value === "Edit"){
+        editTodo.target.previousElementSibling.innerHTML = inputText;
+        addBtn.value = "Add";
+        inputBox.value = "";
+    }
+
+    else{
+
+    
+// Creating P tag
 const li = document.createElement("li");
 const p = document.createElement("p");
 p.innerHTML = inputText;
@@ -30,6 +41,8 @@ li.appendChild(deleteBtn);
 
 todoList.appendChild(li);
 inputBox.value = '';
+
+}
 }
 
 const updateTodo = (event)=>{
@@ -38,6 +51,12 @@ const updateTodo = (event)=>{
         todoList.removeChild(event.target.parentElement);
     }
     
+    if(event.target.innerHTML === 'Edit'){
+        inputBox.value = event.target.previousElementSibling.innerHTML;
+        inputBox.focus();
+        addBtn.value = 'Edit';
+        editTodo = event;
+    }
 }
 
 addBtn.addEventListener('click', addTodo);
